@@ -24,5 +24,3 @@ def flatten(l1, l2, depth):
         resultl1 = [] #clear the result list
         resultl2 = []
     return l1, l2
-
-print(flatten(['a',[12,11,13,14,[2,3,4,5,["Hello", "World","!!!"]]]], ['b', 'c', 'd', [10, 12, ["Bla", "HELLO"]]], 1))

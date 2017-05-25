@@ -1,7 +1,5 @@
 import unittest
-
-from plp.flatten import flatten_after_feedback as flatten
-
+from flatten import flatten
 
 class TestFlatten(unittest.TestCase):
     def assertLists(self, list_a, list_a_expected, list_b, list_b_expected):
