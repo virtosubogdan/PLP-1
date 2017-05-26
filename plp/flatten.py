@@ -24,3 +24,25 @@ def flatten(l1, l2, depth):
         resultl1 = [] #clear the result list
         resultl2 = []
     return l1, l2
+
+
+def flatten_one_list(l, depth):
+    result = []
+    while depth > 0:
+        for element in l:
+            if isinstance(element, (list, tuple)):
+                result.extend(element)
+            else:
+                result.append(element)
+        l = result
+        result = []
+        depth -= 1
+    return l
+
+
+def flatten_after_feedback(l1, l2, depth):
+    if depth == 0:
+        return l1, l2
+    r1 = flatten_one_list(l1, depth)
+    r2 = flatten_one_list(l2, depth)
+    return r1, r2
