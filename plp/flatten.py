@@ -39,10 +39,21 @@ def flatten_one_list(l, depth):
         depth -= 1
     return l
 
+#this function has a problem I cannot see
+def flatten_one_list_without_while(l, depth):
+    result = []
+    for element in l:
+        if isinstance(element, (list, tuple)):
+            result.extend(element)
+        else:
+            result.append(element)
+    l = result
+    if depth > 1:
+        flatten_one_list_without_while(l, depth - 1)
+    return l
 
 def flatten_after_feedback(l1, l2, depth):
     if depth == 0:
         return l1, l2
-    r1 = flatten_one_list(l1, depth)
-    r2 = flatten_one_list(l2, depth)
-    return r1, r2
+    dp = depth
+    return flatten_one_list(l1, dp), flatten_one_list(l2, dp)
