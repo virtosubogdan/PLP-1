@@ -1,4 +1,10 @@
+import sys
+from pprint import pprint
+print('system path contains:')
+pprint(sys.path)
+
 import unittest
+# Either flatten must be available for import for use from plp.flatten
 from flatten import flatten_after_feedback as flatten
 
 class TestFlatten(unittest.TestCase):
@@ -9,9 +15,9 @@ class TestFlatten(unittest.TestCase):
                          'Second list is not correct:' + str(list_b))
 
     def test_nop(self):
-        a = [1, 2]
+        a = [1, 2] # variables names should be over 3 characters to be explicit
         b = [3]
-        (ra, rb) = flatten(a, b, 2)
+        ra, rb = flatten(a, b, 2) # also works like this
         self.assertLists(ra, [1, 2], rb, [3])
 
     def test_simple(self):

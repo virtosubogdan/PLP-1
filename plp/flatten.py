@@ -47,13 +47,17 @@ def flatten_one_list_without_while(l, depth):
             result.extend(element)
         else:
             result.append(element)
-    l = result
+    l = result # l in this scope points to the flatten list, other l's in other scopes are not affected
     if depth > 1:
         flatten_one_list_without_while(l, depth - 1)
+        # the list is not returned. A new list is created with flattened elements, but
+        # the list that is received as an argument is never altered
     return l
 
 def flatten_after_feedback(l1, l2, depth):
     if depth == 0:
         return l1, l2
     dp = depth
+    # same as:
+    # return flatten_one_list(l1, depth), flatten_one_list(l2, depth=dp)
     return flatten_one_list(l1, dp), flatten_one_list(l2, dp)
